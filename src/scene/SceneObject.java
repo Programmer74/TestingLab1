@@ -15,6 +15,13 @@ public class SceneObject {
         actionHistory.addAction(this, action);
     }
 
+    public void doAction(Action action, ActionDescription ... actionDescriptions) {
+        for (ActionDescription a : actionDescriptions) {
+            action.addDescription(a);
+        }
+        actionHistory.addAction(this, action);
+    }
+
     public String getObjectName() {
         return objectName;
     }
