@@ -1,7 +1,6 @@
-package test;
+package testing.lab1.scene;
 
 import org.junit.Test;
-import scene.*;
 
 public class SceneTest {
 

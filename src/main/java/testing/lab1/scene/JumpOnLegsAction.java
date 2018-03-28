@@ -1,4 +1,4 @@
-package scene;
+package testing.lab1.scene;
 
 public class JumpOnLegsAction extends Action{
     public JumpOnLegsAction() {

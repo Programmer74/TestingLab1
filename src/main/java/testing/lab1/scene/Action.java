@@ -1,4 +1,4 @@
-package scene;
+package testing.lab1.scene;
 
 import java.util.ArrayList;
 import java.util.List;

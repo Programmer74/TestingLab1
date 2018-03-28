@@ -1,4 +1,4 @@
-package main;
+package testing.lab1;
 
 public class QuickSort {
 
