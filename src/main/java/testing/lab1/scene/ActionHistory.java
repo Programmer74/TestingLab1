@@ -1,9 +1,9 @@
-package scene;
-
-import javafx.util.Pair;
+package testing.lab1.scene;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import testing.lab1.util.Pair;
 
 public class ActionHistory {
 

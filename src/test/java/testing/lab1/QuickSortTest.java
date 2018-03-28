@@ -1,15 +1,11 @@
-package test;
-
-import main.QsortSwapAction;
-import main.QsortSwapActionHistory;
-import main.QuickSort;
-import org.junit.Test;
+package testing.lab1;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
 
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
+import org.junit.Test;
 
 public class QuickSortTest {
     @Test

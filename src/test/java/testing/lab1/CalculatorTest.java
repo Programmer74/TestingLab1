@@ -1,10 +1,8 @@
-package test;
-
-import main.Calculator;
-import org.junit.Test;
+package testing.lab1;
 
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.*;
+import org.junit.Test;
 
 public class CalculatorTest {
 
