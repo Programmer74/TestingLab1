@@ -36,45 +36,50 @@ public class SceneTest {
 
     @Test
     public void Test() {
+        //this has all the magic happening
         Scene scene = new Scene();
 
+        //creating zafod and balerina
         Zafod zafod = new Zafod();
         Ballerina ballerina = new Ballerina();
+
+        //this makes zafod log his actions to scene's log
         scene.addSceneObject(zafod);
 
+        //Легко, как балерина, Зафод вскочил на ноги и начал осматриваться.
+        JumpOnLegsAction jump = new JumpOnLegsAction();
+        zafod.doAction(jump, ActionDescription.generateDescriptionFromEnum(ActionDescriptionEnum.easily), ActionDescription.generate_LikeSceneObject_Description(ballerina));
+
+        //До самого горизонта во все стороны простиралась сплошная золотая поверхность.
         Surface surface = new Surface();
         scene.addSceneObject(surface);
 
+        Horizon horizon = new Horizon();
+        ExtendAction extend = new ExtendAction();
         GoldAdjective ga = new GoldAdjective();
         FlatAdjective fa = new FlatAdjective();
+
         surface.addAdjective(ga);
         surface.addAdjective(fa);
+        surface.doAction(extend, ActionDescription.generate_ToSceneObject_Description(horizon), ActionDescription.generate_ToPlace_Description(DestinationEnum.all_sides));
 
-        GoldPlanet gp = new GoldPlanet();
-        //scene.addSceneObject(gp);
-        SilverPlanet sp = new SilverPlanet();
-        //scene.addSceneObject(sp);
-
+        //class universe with silver planet to compare shining strength to
         Universe uni = new Universe();
+        SilverPlanet sp = new SilverPlanet();
         uni.AddObject(sp);
 
-        gp.doAction(new ShineAction());
-        sp.doAction(new ShineAction());
-
-        Horizon horizon = new Horizon();
-
-        JumpOnLegsAction jump = new JumpOnLegsAction();
-        ExtendAction extend = new ExtendAction();
-
-        zafod.doAction(jump, ActionDescription.generateDescriptionFromEnum(ActionDescriptionEnum.easily), ActionDescription.generate_LikeSceneObject_Description(ballerina));
-        surface.doAction(extend, ActionDescription.generate_ToSceneObject_Description(horizon), ActionDescription.generate_ToPlace_Description(DestinationEnum.all_sides));
 
         ShineAction shine = new ShineAction();
         shine.setStrength(GoldPlanet.SHINING_STRENGTH);
 
-        surface.doAction(shine, uni.generateComparableActionDescription(gp, shine, new ShineAction()));
+        //Она блестела, как... впрочем, этому невозможно подобрать сравнение,
+        //потому что ничто во Вселенной не блестит так, как планета из чистого золота.
+        surface.doAction(shine, uni.generateComparableActionDescription(new GoldPlanet(), shine, new ShineAction()));
 
+        //print out the whole story
         scene.getActionHistory().printActionHistory();
+
+        //TODO: loads of more useful asserts
         assert(zafod.getObjectName().equals("Zafod"));
     }
 }
