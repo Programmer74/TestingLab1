@@ -4,10 +4,13 @@ public class GoldPlanet extends Planet {
     public GoldPlanet() {
         super("Planet made of Gold");
     }
+
+    public static int SHINING_STRENGTH = 100;
+
     @Override
     public void doAction(Action action) {
         if (action.getClass().getName().equals(ShineAction.class.getName())) {
-            action.setStrength(100);
+            action.setStrength(SHINING_STRENGTH);
         }
         super.doAction(action);
     }

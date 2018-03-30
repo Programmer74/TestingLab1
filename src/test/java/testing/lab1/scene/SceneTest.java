@@ -70,7 +70,7 @@ public class SceneTest {
         surface.doAction(extend, ActionDescription.generate_ToSceneObject_Description(horizon), ActionDescription.generate_ToPlace_Description(DestinationEnum.all_sides));
 
         ShineAction shine = new ShineAction();
-        shine.setStrength(100);
+        shine.setStrength(GoldPlanet.SHINING_STRENGTH);
 
         surface.doAction(shine, uni.generateComparableActionDescription(gp, shine, new ShineAction()));
 
