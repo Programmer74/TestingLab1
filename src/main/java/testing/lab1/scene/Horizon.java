@@ -1,6 +1,6 @@
 package testing.lab1.scene;
 
-public class Horizon extends Person {
+public class Horizon extends SceneObject {
     public Horizon() {
         super("horizon");
     }
