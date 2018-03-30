@@ -1,5 +1,6 @@
 package testing.lab1.scene;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SceneObject {
@@ -7,8 +8,19 @@ public class SceneObject {
     private ActionHistory actionHistory = null;
     private String objectName = null;
 
+    private List<Adjective> adjectives;
+
     public SceneObject(String objectName) {
         this.objectName = objectName;
+        adjectives = new ArrayList<>();
+    }
+
+    public void addAdjective(Adjective adjective) {
+        adjectives.add(adjective);
+    }
+
+    public List<Adjective> getAdjectives() {
+        return adjectives;
     }
 
     public void doAction(Action action) {

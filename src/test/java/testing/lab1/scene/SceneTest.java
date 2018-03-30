@@ -42,9 +42,21 @@ public class SceneTest {
         Ballerina ballerina = new Ballerina();
         scene.addSceneObject(zafod);
 
+        Surface surface = new Surface();
+        scene.addSceneObject(surface);
+
+        GoldAdjective ga = new GoldAdjective();
+        FlatAdjective fa = new FlatAdjective();
+        surface.addAdjective(ga);
+        surface.addAdjective(fa);
+
+        Horizon horizon = new Horizon();
+
         JumpOnLegsAction jump = new JumpOnLegsAction();
+        ExtendAction extend = new ExtendAction();
 
         zafod.doAction(jump, ActionDescription.generateDescriptionFromEnum(ActionDescriptionEnum.easily), ActionDescription.generate_LikeSceneObject_Description(ballerina));
+        surface.doAction(extend, ActionDescription.generate_ToSceneObject_Description(horizon), ActionDescription.generate_ToPlace_Description(DestinationEnum.all_sides));
 
         scene.getActionHistory().printActionHistory();
         assert(zafod.getObjectName().equals("Zafod"));
