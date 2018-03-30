@@ -49,6 +49,7 @@ public class SceneTest {
         //Легко, как балерина, Зафод вскочил на ноги и начал осматриваться.
         JumpOnLegsAction jump = new JumpOnLegsAction();
         zafod.doAction(jump, ActionDescription.generateDescriptionFromEnum(ActionDescriptionEnum.easily), ActionDescription.generate_LikeSceneObject_Description(ballerina));
+        zafod.doAction(new BeginScanningAction());
 
         //До самого горизонта во все стороны простиралась сплошная золотая поверхность.
         Surface surface = new Surface();
