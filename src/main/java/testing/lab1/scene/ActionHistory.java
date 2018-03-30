@@ -19,11 +19,6 @@ public class ActionHistory {
 
     public void printActionHistory() {
         for (Pair<SceneObject, Action> a : actions) {
-            if (!a.getKey().getAdjectives().isEmpty()) {
-                for (Adjective adj : a.getKey().getAdjectives()) {
-                    System.out.print(adj.toString() + " ");
-                }
-            }
             System.out.println(a.getKey().toString() + " did " + a.getValue().toString());
         }
     }

@@ -44,9 +44,13 @@ public class SceneObject {
 
     @Override
     public String toString() {
-        return "SceneObject{" +
-                "objectName='" + objectName + '\'' +
-                '}';
+        String s;
+        s = "";
+        for (Adjective a : adjectives) {
+            s += a.getAdjective() + " ";
+        }
+        s += objectName;
+        return s;
     }
 
     @Override
