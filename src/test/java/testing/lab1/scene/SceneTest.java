@@ -50,6 +50,17 @@ public class SceneTest {
         surface.addAdjective(ga);
         surface.addAdjective(fa);
 
+        GoldPlanet gp = new GoldPlanet();
+        //scene.addSceneObject(gp);
+        SilverPlanet sp = new SilverPlanet();
+        //scene.addSceneObject(sp);
+
+        Universe uni = new Universe();
+        uni.AddObject(sp);
+
+        gp.doAction(new ShineAction());
+        sp.doAction(new ShineAction());
+
         Horizon horizon = new Horizon();
 
         JumpOnLegsAction jump = new JumpOnLegsAction();
@@ -57,6 +68,11 @@ public class SceneTest {
 
         zafod.doAction(jump, ActionDescription.generateDescriptionFromEnum(ActionDescriptionEnum.easily), ActionDescription.generate_LikeSceneObject_Description(ballerina));
         surface.doAction(extend, ActionDescription.generate_ToSceneObject_Description(horizon), ActionDescription.generate_ToPlace_Description(DestinationEnum.all_sides));
+
+        ShineAction shine = new ShineAction();
+        shine.setStrength(100);
+
+        surface.doAction(shine, uni.generateComparableActionDescription(gp, shine, new ShineAction()));
 
         scene.getActionHistory().printActionHistory();
         assert(zafod.getObjectName().equals("Zafod"));

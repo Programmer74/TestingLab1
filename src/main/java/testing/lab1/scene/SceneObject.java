@@ -24,14 +24,18 @@ public class SceneObject {
     }
 
     public void doAction(Action action) {
-        actionHistory.addAction(this, action);
+        if (actionHistory != null) {
+            actionHistory.addAction(this, action);
+        }
     }
 
     public void doAction(Action action, ActionDescription ... actionDescriptions) {
         for (ActionDescription a : actionDescriptions) {
             action.addDescription(a);
         }
-        actionHistory.addAction(this, action);
+        if (actionHistory != null) {
+            actionHistory.addAction(this, action);
+        }
     }
 
     public String getObjectName() {

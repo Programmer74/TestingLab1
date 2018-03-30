@@ -7,10 +7,14 @@ public class Action {
 
     private String actionName;
     private List<ActionDescription> actionDescriptions;
+    private int strength;
+
+    public static int STRENGTH_DEFAULT = 1;
 
     public Action(String actionName) {
         this.actionName = actionName;
         actionDescriptions = new ArrayList<>();
+        strength = STRENGTH_DEFAULT;
     }
 
     public void addDescription(ActionDescription description) {
@@ -34,6 +38,14 @@ public class Action {
         return s;
     }
 
+    public int getStrength() {
+        return strength;
+    }
+
+    public void setStrength(int strength) {
+        this.strength = strength;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -41,6 +53,7 @@ public class Action {
 
         Action action = (Action) o;
 
+        if (strength != action.strength) return false;
         if (actionName != null ? !actionName.equals(action.actionName) : action.actionName != null) return false;
         return actionDescriptions != null ? actionDescriptions.equals(action.actionDescriptions) : action.actionDescriptions == null;
     }
@@ -49,6 +62,7 @@ public class Action {
     public int hashCode() {
         int result = actionName != null ? actionName.hashCode() : 0;
         result = 31 * result + (actionDescriptions != null ? actionDescriptions.hashCode() : 0);
+        result = 31 * result + strength;
         return result;
     }
 
