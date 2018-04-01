@@ -5,8 +5,4 @@ public class Surface extends SceneObject {
         super("surface");
     }
 
-    @Override
-    public String toString() {
-        return "surface";
-    }
 }
