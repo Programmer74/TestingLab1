@@ -1,7 +1,5 @@
 package testing.lab1.scene;
 
-import javafx.scene.Scene;
-
 import java.util.ArrayList;
 import java.util.List;
 

@@ -2,23 +2,24 @@ package testing.lab1;
 
 public class Calculator {
 
-    public static double factorial(int x) {
-        long ans = 1;
-        for (int i = 1; i <= x; i++) {
-            ans = ans * i;
+    private static double summand(double x, int k) {
+        double rc = 1;
+        for (int i = 1; i <= k; ++i) {
+            rc *= x/i;
         }
-        return ans;
+        return rc;
     }
 
-    public static double sin(double x, int precision) {
-        double ans = 0;
-        for (int i = 0; i < precision; i++) {
-            ans += Math.pow(-1, i) * (Math.pow(x, (2 * i + 1))) / factorial(2 * i + 1);
+    public static double sin(double x) {
+        int precision = 100;
+        double rc = 0;
+        for (int i = 0; i < precision; ++i) {
+            rc += (i % 2 == 0 ? 1 : -1) * summand(x, 2*i + 1);
         }
-        return ans;
+        return ((int)(rc * 1e5)) / 1e5;
     }
 
     public static double sin_degrees(double x, int precision) {
-        return sin(x * Math.PI / 180, precision);
+        return sin(x * Math.PI / 180);
     }
 }
