@@ -24,12 +24,6 @@ public class CalculatorTest {
         }
     }
 
-    private static class DDPair extends Pair<Double, Double> {
-        DDPair(Double key, Double value) {
-            super(key, value);
-        }
-    }
-
     @Test
     public void halfPeriodTest() {
         DDPair values[] = new DDPair[] {
@@ -48,5 +42,12 @@ public class CalculatorTest {
                     Math.abs(values[i].getKey() - values[i].getValue()) < 1e-6);
         }
     }
+
+    private static class DDPair extends Pair<Double, Double> {
+        DDPair(Double key, Double value) {
+            super(key, value);
+        }
+    }
+
 
 }

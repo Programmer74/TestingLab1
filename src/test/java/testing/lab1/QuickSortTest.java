@@ -9,17 +9,17 @@ import org.junit.Test;
 
 public class QuickSortTest {
     @Test
-    public void testSort() {
+    public void sortTest() {
         int[] arr = {1, 3, 2, 4, 10, 2};
         int[] arr1 = Arrays.copyOf(arr, arr.length);
         QuickSort.sort(arr1, null);
         int[] arr2 = Arrays.copyOf(arr, arr.length);
         Arrays.sort(arr2);
-        System.out.println("Original:");
+        //System.out.println("Original:");
         QuickSort.printArray(arr);
-        System.out.println("Sorted Qsort:");
+        //System.out.println("Sorted Qsort:");
         QuickSort.printArray(arr1);
-        System.out.println("Sorted Standart");
+        //System.out.println("Sorted Standart");
         QuickSort.printArray(arr2);
         assertTrue(Arrays.equals(arr1, arr2));
     }
@@ -38,5 +38,16 @@ public class QuickSortTest {
         //history.printHistory();
 
         assertTrue(history.actionIndex(action) >= 0);
+    }
+
+    @Test
+    public void noActionsTest() {
+        int[][] arr = {{}, {-8}, {-8, 0}, {-100, 10, 100, 1203, 234234}};
+        for (int i = 0; i < arr.length; ++i) {
+            QsortSwapActionHistory history = new QsortSwapActionHistory();
+            QuickSort.sort(arr[i], history);
+            history.printHistory();
+            assertEquals("arr[" + i + "]", 0, history.size());
+        }
     }
 }

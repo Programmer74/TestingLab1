@@ -25,4 +25,8 @@ public class QsortSwapActionHistory {
         }
     }
 
+    public int size() {
+        return history.size();
+    }
+
 }
