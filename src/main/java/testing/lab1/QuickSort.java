@@ -40,7 +40,7 @@ public class QuickSort {
             // element then get the next element from the right list
             while (array[j] > pivot) {
                 j--;
-                if (j < 0) break;
+                if (j < start) break;
             }
 
             // If we have found a value in the left list which is larger than
@@ -58,7 +58,7 @@ public class QuickSort {
         if ((i < end) && (array[i] < pivot)) {
             swap(array, pivot, start, start, i, history);
         }
-        if ((j > 0) && (array[j] < pivot)) {
+        if ((j > start) && (array[j] < pivot)) {
             swap(array, pivot, start, start, j, history);
         }
 

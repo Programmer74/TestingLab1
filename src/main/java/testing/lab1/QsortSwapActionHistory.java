@@ -29,4 +29,12 @@ public class QsortSwapActionHistory {
         return history.size();
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (! (o instanceof QsortSwapActionHistory)) {
+            return false;
+        }
+        QsortSwapActionHistory other = (QsortSwapActionHistory)o;
+        return other.history.equals(history);
+    }
 }
