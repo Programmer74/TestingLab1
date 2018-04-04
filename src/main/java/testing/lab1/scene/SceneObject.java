@@ -46,6 +46,10 @@ public class SceneObject {
         this.actionHistory = actionHistory;
     }
 
+    public ActionHistory getActionHistory() {
+        return actionHistory;
+    }
+
     @Override
     public String toString() {
         String s;

@@ -23,4 +23,10 @@ public class ActionHistory {
         }
     }
 
+    public Action getLastAction(SceneObject object) {
+        Pair<SceneObject, Action> a =  actions.stream().filter(
+                p -> p.getKey() == object).reduce((f, s) -> s).orElse(null);
+        return a == null ? null : a.getValue();
+    }
+
 }

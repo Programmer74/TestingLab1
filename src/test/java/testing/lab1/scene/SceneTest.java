@@ -2,6 +2,9 @@ package testing.lab1.scene;
 
 import org.junit.Test;
 
+import static junit.framework.TestCase.assertNotNull;
+import static junit.framework.TestCase.assertTrue;
+
 public class SceneTest {
 
     @Test
@@ -49,11 +52,19 @@ public class SceneTest {
         //Легко, как балерина, Зафод вскочил на ноги и начал осматриваться.
         JumpOnLegsAction jump = new JumpOnLegsAction();
         zafod.doAction(jump, ActionDescription.generateDescriptionFromEnum(ActionDescriptionEnum.easily), ActionDescription.generate_LikeSceneObject_Description(ballerina));
+        Action a = zafod.getActionHistory().getLastAction(zafod);
+        assertTrue(a instanceof JumpOnLegsAction
+                && a.getActionDescriptions().stream().anyMatch(
+                ad -> ad.getActionDescription().equals("easily")));
+
         zafod.doAction(new BeginScanningAction());
+        a = zafod.getActionHistory().getLastAction(zafod);
+        assertTrue(a.getActionName().contains("scanning"));
 
         //До самого горизонта во все стороны простиралась сплошная золотая поверхность.
         Surface surface = new Surface();
         scene.addSceneObject(surface);
+        assertNotNull(scene.getSceneObject("surface"));
 
         Horizon horizon = new Horizon();
         ExtendAction extend = new ExtendAction();
