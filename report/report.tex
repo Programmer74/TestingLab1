@@ -1,0 +1,46 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsmath}
+\usepackage[top=10mm, bottom=20mm]{geometry}
+\usepackage{graphicx}
+\usepackage{changepage}
+%\usepackage{listings}
+\usepackage{fancyhdr} % to change header and footers
+\def\infinity{\rotatebox{90}{8}}
+\usepackage{listings}
+\usepackage{hyperref}
+
+\lstset{
+	breaklines=true,
+	postbreak=\mbox{$\hookrightarrow$\space},
+	extendedchars=true
+}
+
+\begin{document}
+\begin{titlepage}
+	\input{title_page}	
+\end{titlepage}
+
+%new page
+\newpage
+\pagestyle{fancy} % Turn on the style
+\fancyhf{} % Start with clearing everything in the header and footer
+% Set the right side of the footer to be the page number
+\fancyfoot[R]{\thepage}
+
+\section{Часть 1}
+\input{part1}
+
+\section{Часть 2}
+\input{part2}
+
+\section{Часть 3}
+\input{part3}
+
+\section{Выводы}
+\input{conclusion}
+
+\newpage
+
+\end{document}
