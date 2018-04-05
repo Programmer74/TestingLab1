@@ -19,6 +19,10 @@ public class SceneObject {
         adjectives.add(adjective);
     }
 
+    public boolean is(Adjective adjective) {
+        return adjectives.stream().anyMatch(adj -> adj.equals(adjective));
+    }
+
     public List<Adjective> getAdjectives() {
         return adjectives;
     }

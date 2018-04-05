@@ -74,6 +74,19 @@ public class SceneTest {
         surface.addAdjective(ga);
         surface.addAdjective(fa);
         surface.doAction(extend, ActionDescription.generate_ToSceneObject_Description(horizon), ActionDescription.generate_ToPlace_Description(DestinationEnum.all_sides));
+        assertTrue(
+                surface.getActionHistory().getLastAction(surface)
+                        .getActionDescriptions().stream().anyMatch(
+                        ad -> ad.getActionDescription().contains(
+                                horizon.getObjectName()))
+                        &&
+                        surface.getActionHistory().getLastAction(surface).getActionName().equals(new ExtendAction().getActionName())
+                        &&
+                        surface.is(new GoldAdjective())
+                        &&
+                        surface.is(new FlatAdjective())
+        );
+
 
         //class universe with silver planet to compare shining strength to
         Universe uni = new Universe();
@@ -87,6 +100,9 @@ public class SceneTest {
         //Она блестела, как... впрочем, этому невозможно подобрать сравнение,
         //потому что ничто во Вселенной не блестит так, как планета из чистого золота.
         surface.doAction(shine, uni.generateComparableActionDescription(new GoldPlanet(), shine, new ShineAction()));
+        assertTrue(surface.getActionHistory().getLastAction(surface).
+                getActionDescriptions().stream().
+                anyMatch(ad -> ad instanceof UncomparableActionDescription));
 
         //print out the whole story
         scene.getActionHistory().printActionHistory();
