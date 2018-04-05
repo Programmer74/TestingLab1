@@ -80,7 +80,9 @@ public class SceneTest {
                         ad -> ad.getActionDescription().contains(
                                 horizon.getObjectName()))
                         &&
-                        surface.getActionHistory().getLastAction(surface).getActionName().equals(new ExtendAction().getActionName())
+                        surface.getActionHistory().getLastAction(surface)
+                                .getActionName().equals(
+                                        new ExtendAction().getActionName())
                         &&
                         surface.is(new GoldAdjective())
                         &&
