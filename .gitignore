@@ -5,3 +5,4 @@ lab1.iml
 report/*
 !report/*.tex
 !report/*.pdf
+!report/*.png
