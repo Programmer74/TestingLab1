@@ -1,0 +1,85 @@
+\documentclass[a4paper,10pt,russian]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{indentfirst}
+\usepackage{amssymb,amsmath}
+\usepackage{multicol}
+\usepackage{soulutf8}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{spverbatim}
+\usepackage{ucs}
+\usepackage{misccorr}
+\usepackage{float}
+\usepackage{makecell}           % break line in cell
+\usepackage{hyperref}
+
+\usepackage{xcolor}
+\definecolor{light-gray}{gray}{0.9}
+\definecolor{string-gray}{gray}{0.3}
+
+\usepackage{cmap}
+\usepackage{pscyr}
+
+\usepackage{listings}           % source code `bl
+% "define" Scala
+\lstdefinelanguage{scala}{
+    morekeywords={abstract,case,catch,class,def, %
+      do,else,extends,false,final,finally,       %
+      for,if,implicit,import,match,mixin,        %
+      new,null,object,override,package,          %
+      private,protected,requires,return,sealed,  %
+      super,this,throw,trait,true,try,           %
+      type,val,var,while,with,yield},
+    otherkeywords={=>,<-,<\%,<:,>:,\#,@,::,:+,+:},
+    sensitive=true,
+    morecomment=[l]{//},
+    morecomment=[n]{/*}{*/},
+    morestring=[b]",
+    morestring=[b]',
+    morestring=[b]"""
+}
+
+\lstset{
+    escapeinside={\#@}{@},
+    extendedchars=\true,
+    numbers=left,
+    inputencoding=utf8,
+    keepspaces=true,
+    basicstyle=\footnotesize\ttfamily,
+    backgroundcolor=\color{light-gray},
+    keywordstyle=\bfseries,
+    commentstyle=\itshape\color{string-gray},
+    stringstyle=\color{string-gray},
+    breaklines=true,
+    columns=fullflexible,
+    tabsize=4
+}
+
+
+\parskip=0pt                % интервал между абзацами
+
+\usepackage{geometry}       % Меняем поля страницы
+\geometry{left=1.5cm}         % левое поле
+\geometry{right=1.5cm}      % правое поле
+\geometry{top=1cm}          % верхнее поле
+\geometry{bottom=1.5cm}       % нижнее поле
+
+\begin{document}
+
+\input{title}
+\setcounter{page}{2}
+
+\section{Часть 1}
+\input{part1}
+
+\section{Часть 2}
+\input{part2}
+
+\section{Часть 3}
+\input{part3}
+
+\section{Выводы}
+\input{conclusion}
+
+\end{document}

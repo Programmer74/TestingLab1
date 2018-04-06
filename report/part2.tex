@@ -6,10 +6,75 @@
 \subsubsection{Сортировка}
 \lstinputlisting[language=java]{../src/main/java/testing/lab1/QuickSort.java}
 \subsubsection{QsortSwapAction.java}
-\lstinputlisting[language=java]{../src/main/java/testing/lab1/QsortSwapAction.java}
+\begin{lstlisting}[language=java]
+package testing.lab1;
+
+public class QsortSwapAction {
+    private int pivot;
+    private int pivotIndex;
+
+    private int leftValue;
+    private int leftIndex;
+
+    private int rightValue;
+    private int rightIndex;
+
+    public QsortSwapAction(int pivot, int pivotIndex, int leftValue, int leftIndex, int rightValue, int rightIndex) {
+        this.pivot = pivot;
+        this.pivotIndex = pivotIndex;
+        this.leftValue = leftValue;
+        this.leftIndex = leftIndex;
+        this.rightValue = rightValue;
+        this.rightIndex = rightIndex;
+    }
+
+    @Override
+    public String toString() {
+        return "QsortSwapAction{" +
+                "pivot=" + pivot +
+                ", pivotIndex=" + pivotIndex +
+                ", leftValue=" + leftValue +
+                ", leftIndex=" + leftIndex +
+                ", rightValue=" + rightValue +
+                ", rightIndex=" + rightIndex +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        QsortSwapAction that = (QsortSwapAction) o;
+
+        if (pivot != that.pivot) return false;
+        if (pivotIndex != that.pivotIndex) return false;
+        if (leftValue != that.leftValue) return false;
+        if (leftIndex != that.leftIndex) return false;
+        if (rightValue != that.rightValue) return false;
+        return rightIndex == that.rightIndex;
+    }
+    // getters and setters
+}
+\end{lstlisting}
 \subsubsection{QsortSwapActionHistory.java}
 \lstinputlisting[language=java]{../src/main/java/testing/lab1/QsortSwapActionHistory.java}
 \subsection{Тесты}
 \lstinputlisting[language=java]{../src/test/java/testing/lab1/QuickSortTest.java}
-\subsection{Почему так}
-А черт его знает.
+\subsection{Обоснование тестового покрытия}
+В сортировку передан объект, позволяющий сохранять историю обменов элементов в массиве.
+Первый тест просто сравнивает результаты сортировки с упорядоченным набором.
+Следующий проверяет, что на большом массиве алгоритм делает один из необходимых шагов.
+
+Дальнейшие тесты направлены на проверку корректности поведения алгоритма на всех стадиях работы.
+Группа тестов \texttt{noActionsTest} проверяет, что для отсортированных массивов
+(и, в частности, пустого) не производится никаких действий. Тест \texttt{halfSortedTest}
+позволяет отследить, как алгоритм ведёт себя на частично отсортированном массиве.
+\texttt{reversedTest} демонстрирует работу на отсортированном в обратном порядке
+массиве, который является ещё одним вырожденным случаем для алгоритма, подтверждающим
+его корректность. \texttt{npeTest} служит для проверки на уведомление об ошибке
+(выбросе исключения) в случае передачи алгоритму значения \texttt{null} вместо
+ссылки на массив.
+
+Таким образом удалось покрыть алгоритм адекватным набором тестов, демонстрирующих
+его корректную работу как на произвольных данных, так и в вырожденных случаях.

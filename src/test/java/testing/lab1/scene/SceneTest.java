@@ -108,8 +108,5 @@ public class SceneTest {
 
         //print out the whole story
         scene.getActionHistory().printActionHistory();
-
-        //TODO: loads of more useful asserts
-        assert(zafod.getObjectName().equals("Zafod"));
     }
 }

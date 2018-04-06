@@ -25,7 +25,7 @@ public class QuickSortTest {
     }
 
     @Test
-    public void testSortFromSite() {
+    public void bigSequenceTest() {
         //https://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html
         int[] arr = { 56, 38, 75, 26, 75, 82, 17, 58, 45, 81, 42, 21, 1, 91, 30, 56, 40, 76, 99, 68, 93, 50, 95, 34, 24, 35, 9, 70, 11, 11, 88, 44, 79, 3, 81, 76, 27, 89, 87, 58, 15, 62, 31, 21, 76, 66, 82, 6, 9, 84 };
         //pivot k=0 arr[k]=56
